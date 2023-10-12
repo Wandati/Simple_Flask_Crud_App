@@ -1,0 +1,56 @@
+{% extends "layout.html" %} {% block body %} {% if tasks|length < 1 %}
+<h1 class="text-center">No Tasks Available</h1>
+<h1 class="text-center">Add a Task Below</h1>
+
+<div class="container">
+  <form method="post" action="/">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Enter a name"
+        name="name"
+      />
+      <label for="floatingInput"> Name </label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Enter A description"
+        name="description"
+      />
+      <label for="floatingPassword">Description</label>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Add Task</button>
+    {% else %}
+    <h1 class="text-center">Tasks</h1>
+
+    <div class="container">
+      <div class="row mt-4">
+        {% for task in tasks %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card-deck">
+            <div class="card-body">
+              <h5 class="card-title">{{ task.name }}</h5>
+              <p class="card-text">{{ task.description }}</p>
+              <p class="card-text">{{ task.created_at.date() }}</p>
+              <a href="/update/{{ task.id }}" class="btn btn-secondary"
+                >Update</a
+              >
+              <a href="/delete/{{ task.id }}" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </form>
+</div>
+<p class="text-center">
+  Add A Task <a href="/addtask" class="btn btn-dark">Here</a> {% endif %} {%
+  endblock %}
+</p>

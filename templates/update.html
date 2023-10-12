@@ -1,0 +1,31 @@
+{% extends "layout.html" %} {% block body %}
+<h1 class="text-center">Update Task</h1>
+<div class="container">
+  <form method="post" action="/update/{{task.id}}">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="{{task.name}}"
+        value="{{task.name}}"
+        name="name"
+      />
+      <label for="floatingInput"> Name </label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="{{task.description}}"
+        value="{{task.description}}"
+        name="description"
+      />
+      <label for="floatingPassword">Description</label>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-secondary">Update</button>
+  </form>
+</div>
+{% endblock %}

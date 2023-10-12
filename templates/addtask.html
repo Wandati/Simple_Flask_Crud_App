@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block body %}
+<h1 class="text-center mb-4">Add a Task Below</h1>
+
+<div class="container">
+  <form method="post" action="/addtask">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Enter a name"
+        name="name"
+      />
+      <label for="floatingInput"> Name </label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Enter A description"
+        name="description"
+      />
+      <label for="floatingPassword">Description</label>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-secondary">Add Task</button>
+  </form>
+</div>
+{% endblock %}
